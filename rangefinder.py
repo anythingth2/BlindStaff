@@ -8,17 +8,14 @@ echoPin = 27
 GPIO.setup(trigPin,GPIO.OUT)
 GPIO.setup(echoPin,GPIO.IN,pull_up_down = GPIO.PUD_DOWN)
 def pulseIn(pin):
-    trig = 10**-6
-    pulsestart = time.time()
-    while GPIO.input(pin) == 1:pass
-    pulsestart = time.time()
-    while GPIO.input(pin) == 0:pass
-    pulseend = time.time()
+    while GPIO.input(pin) == 0:
+        pulsestart = time.time()
+    while GPIO.input(pin) == 1:
+        pulseend = time.time()
     return (pulseend - pulsestart)
 
         
 def getDistance(t):
-    
     return t * 340 / 2 * 100
 while True:
     GPIO.output(trigPin,GPIO.LOW)
