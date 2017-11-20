@@ -2,16 +2,14 @@ import RPi.GPIO as GPIO
 import time
 #GPIO.cleanup()
 GPIO.setmode(GPIO.BCM)
-alertDistance = 45
+
 trigPin = 17
 echoPin = 27
 buzzerPin = 4
-GPIO.setup(18,GPIO.OUT)
-buzzerPWM = GPIO.PWM(18,250)
+
 GPIO.setup(trigPin,GPIO.OUT)
 GPIO.setup(echoPin,GPIO.IN,pull_up_down = GPIO.PUD_DOWN)
 GPIO.setup(buzzerPin,GPIO.OUT)
-
 def pulseIn(pin):
     while GPIO.input(pin) == 0:
         pulsestart = time.time()
@@ -21,9 +19,7 @@ def pulseIn(pin):
 def beep(t):
     GPIO.output(buzzerPin,GPIO.HIGH)
     GPIO.output(buzzerPin,GPIO.LOW)
-    buzzerPWM.start(0.75)
     time.sleep(t)
-    buzzerPWM.stop()
     GPIO.output(buzzerPin,GPIO.HIGH)
         
 def getDistance(t):
@@ -38,7 +34,7 @@ while True:
     
     duration = pulseIn(echoPin)
     distance = getDistance(duration)
-    if distance < alertDistance:
+    if distance < 5:
         beep(0.25)
         print('FOUNDED!','Distance :',distance,'cm')
     else: print('Distance :',distance,'cm')
