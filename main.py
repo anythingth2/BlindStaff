@@ -1,5 +1,5 @@
 import rangefinder
-from RPi.GPIO import GPIO
+import RPi.GPIO as GPIO
 import gps
 import request
 ALERT_DISTANCE = 45
