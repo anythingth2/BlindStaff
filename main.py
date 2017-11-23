@@ -13,5 +13,5 @@ if __name__ == '__main__':
             rangefinder.beep(0.25)
             print('FOUNDED')
         elif distance > ALERT_DISTANCE and distance < ALERT_DISTANCE + 25:
-            request.sentMessage(str('ต้องการความช่วยเหลือด่วน!!!\n')+request.getGoogleMapLink(gps.getLastLatLn))
+            request.sentMessage(str('ต้องการความช่วยเหลือด่วน!!!\n')+request.getGoogleMapLink(gps.getLastLatLng()))
             print('sent help request')
