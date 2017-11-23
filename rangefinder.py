@@ -10,6 +10,7 @@ buzzerPin = 4
 GPIO.setup(trigPin,GPIO.OUT)
 GPIO.setup(echoPin,GPIO.IN,pull_up_down = GPIO.PUD_DOWN)
 GPIO.setup(buzzerPin,GPIO.OUT)
+print('init')
 def pulseIn(pin):
     while GPIO.input(pin) == 0:
         pulsestart = time.time()
@@ -53,4 +54,4 @@ if __name__ == '__main__':
         else: print('Distance :',distance,'cm')
         #print(GPIO.input(echoPin))
         time.sleep(0.1)
-GPIO.cleanup()
+#GPIO.cleanup()
