@@ -6,6 +6,7 @@ import request
 ALERT_DISTANCE = 45
 print('starting with alert distance ',ALERT_DISTANCE,'cm')
 if __name__ == '__main__':
+    gps.startWithThread()
     while True:
         distance = rangefinder.getDistance()
         print('distance ',distance,'cm')

@@ -37,3 +37,9 @@ def start():
                 lastLatLng = (float(msg.lat)/100,float(msg.lon)/100)
                 open('gps_log.txt','w').write(str(lastLatLng[0]),str(lastLatLng[1]))
         time.sleep(0.25)
+
+
+def startWithThread():
+    t = Thread(target=start)
+    t.daemon = on 
+    t.start()
