@@ -12,6 +12,7 @@ def sentHelpRequest():
 
 if __name__ == '__main__':
     gps.startWithThread()
+    #GPIO.add_event_detect(27,GPIO.BOTH,onRequestHelp)
     while True:
         distance = rangefinder.getDistance()
         print('distance ',distance,'cm')

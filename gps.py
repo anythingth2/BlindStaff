@@ -14,6 +14,7 @@ def getLastLatLng():
     return lastLatLng
 
 def start():
+    print('GPS started')
     while True:
         while not port.readable():
             try:
@@ -41,5 +42,5 @@ def start():
 
 def startWithThread():
     t = Thread(target=start)
-    t.daemon = on 
+    t.daemon = True
     t.start()
