@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import rangefinder
 import RPi.GPIO as GPIO
 import gps
@@ -5,6 +6,10 @@ import request
 
 ALERT_DISTANCE = 45
 print('starting with alert distance ',ALERT_DISTANCE,'cm')
+def sentHelpRequest():
+    request.sentMessage(str('ตองการความชวยเหลอดวน!!!\n')+request.getGoogleMapLink(gps.getLastLatLng()))
+    print('sent help request')
+
 if __name__ == '__main__':
     gps.startWithThread()
     while True:
@@ -13,6 +18,4 @@ if __name__ == '__main__':
         if distance < ALERT_DISTANCE:
             rangefinder.beep(0.25)
             print('FOUNDED')
-        elif distance > ALERT_DISTANCE and distance < ALERT_DISTANCE + 25:
-            request.sentMessage(str('ต้องการความช่วยเหลือด่วน!!!\n')+request.getGoogleMapLink(gps.getLastLatLng()))
-            print('sent help request')
+        

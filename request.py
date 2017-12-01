@@ -10,7 +10,7 @@ header = {
     'Authorization':'Bearer '+ SELF_TOKEN
 }
 def getGoogleMapLink(latLng):
-    return str('https://www.google.com/maps/?q=')#+str(latLng[0])+','+str(latLng[1]))
+    return str('https://www.google.com/maps/?q='+str(latLng[0])+','+str(latLng[1]))
 
 def sentMessage(text):
     body = {'message':text}
