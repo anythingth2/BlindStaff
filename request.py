@@ -7,7 +7,7 @@ TOKEN = '12ONmCXDQ82o7J8UGb07JgbCCkY7mIGm1W8YF1pWuLH'
 SELF_TOKEN = '1gGRM97rfABJ3lTWP6GKPv6IaDtWLGfRdMSzoweldm7'
 header = {
     'Content-Type':'application/x-www-form-urlencoded',
-    'Authorization':'Bearer '+ SELF_TOKEN
+    'Authorization':'Bearer '+ TOKEN
 }
 def getGoogleMapLink(latLng):
     return str('https://www.google.com/maps/?q='+str(latLng[0])+','+str(latLng[1]))
